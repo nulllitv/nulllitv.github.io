@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(45deg,#66CCFF,#88EEFF);
+        }
+        #black{
+            border: 3px solid red;
+            width: 100px;
+            height: 100px;
+            transform-origin: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            animation: retate 1s infinite;
+        }
+        @keyframes retate{
+            from{
+                transform: rotate(0deg) scale(1,1);
+                opacity: 1;
+                filter: blur(0px);
+            }
+            100%{
+                transform: rotate(405deg) scale(3,3);
+                opacity: 0;
+                filter: blur(1px);
+            }
+        }
+        #list{
+            overflow: auto;
+            position: absolute;
+            height: 100%;
+        }
+        #list>div{
+            background:linear-gradient(135deg,#ece9e6,#ffffff);
+            border-radius: 10px;
+            width: 30px;
+            height: 30px;
+            margin-top: 10px;
+            margin-left: 21px;
+            margin-right: 21px;
+            float: left;
+            animation: scale alternate 1s infinite;
+        }
+        @keyframes scale{
+            form{
+                border-radius: 0px;
+                transform: scale(1,1);
+            }
+            50%{
+                transform: translate(0,100%);
+                border-radius: 25%;
+            }
+            to{
+                transform: translate(0,0);
+                border-radius: 50%;
+                transform: scale(1.5,1.5);
+            }
+        }
+        #list2{
+            width: 90%;
+            height: 100px;
+            transform-origin: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+        #list2>div{
+            border: 3px solid red;
+            width: 80px;
+            height: 80px;
+            transform-origin: center;
+            position: absolute;
+
+            animation: scale2 0.8s infinite;
+        }
+        #list2>div:nth-child(1){
+            border: 3px solid red;
+            background: linear-gradient(135deg,#dd512f,#dd2476);
+            width: 80px;
+            height: 80px;
+            transform-origin: center;
+            position: absolute;
+            top: 6px;
+        }
+        #list2>div:nth-child(2){
+            border: 3px solid green;
+            background: linear-gradient(135deg,#51ff2f,#24dd76);
+            width: 80px;
+            height: 80px;
+            transform-origin: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+
+        }
+        #list2>div:nth-child(3){
+            border: 3px solid blue;
+            background: linear-gradient(135deg,#2f51ff,#7624dd);
+            width: 80px;
+            height: 80px;
+            transform-origin: center;
+            position: absolute;
+            top: 6px;
+            bottom: 0;
+            right: 0;
+
+        }
+        
+
+        @keyframes scale2{
+            from{
+                
+                transform: scale(0.8,0.8);
+            }
+            to{
+
+                transform: scale(1,1);
+            }
+        }
+        #tri{
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid #fff799;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            transform: translate(-100%,30px);
+            animation: up 1s 0.5s infinite;
+        }
+        @keyframes up{
+            from{
+                transform: translate(-100%,30px);
+            }
+
+            20%{
+                transform: translate(0,30px);
+            }
+            40%{
+                transform: translate(100%,30px);
+            }
+            80%{
+                transform: translate(0,0px);
+            }
+            to{
+                transform: translate(-100%,30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="black"></div>
+    <div id="list">
+        <div class="c"></div>
+        <div class="c"></div>
+        <div class="c"></div>
+        <div class="c"></div>
+        <div class="c"></div>
+    </div>
+    <div id="list2">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="tri"></div>
+    <script>
+        setInterval(function () {
+            document.body.style.height=document.documentElement.clientHeight+"px";
+            document.querySelector("#list").style.width=document.documentElement.clientWidth+"px";
+            Clist=document.querySelectorAll(".c")
+            for (let i = 0; i < Clist.length; i++) {
+                const e = Clist[i];
+                e.style.marginLeft=(document.documentElement.clientWidth-150)/10+'px'
+                e.style.marginRight=(document.documentElement.clientWidth-150)/10+'px'
+            }
+        },1000)
+        
+    </script>
+</body>
+</html>
